@@ -19,19 +19,74 @@
         <h1>Social Media Dashboard</h1>
         <p>Total Followers: 23,004</p>
       </div>
-
+      <div class="hr"></div>
       <div class="toggle">
-        <hr>
+       
         <p>Dark Mode</p>
+        <input type="checkbox" name="" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+          <div class="ball"></div>
+        </label>
       </div>
     </section> 
+    
     <section class="social-feed" id="social-feed">
 
-      <div class="feed-card facebook"></div>
-      <div class="feed-card twitter"></div>
-      <div class="feed-card instagram"></div>
-      <div class="feed-card youtube"></div>
-    </section>
+      <div class="feed-card facebook">
+        <div class="social-tag">
+          <img src="./images/icon-facebook.svg" alt="" id="social-icon"> <p>@nathanf</p>
+        </div>
+        <div class="follower-count">
+          <p id="follower-num">1987</p>
+          <p id="follower-subhead">Followers</p>
+        </div>
+        <div class="counter">
+          <img src="./images/icon-up.svg" id="arrow-icon" alt="">
+          <p id="positive">12 Today</p>
+        </div>        
+      </div>
+      <div class="feed-card twitter">
+        <div class="social-tag">
+          <img src="./images/icon-twitter.svg" alt="" id="social-icon"> <p>@nathanf</p>
+        </div>
+        <div class="follower-count">
+          <p id="follower-num">1044</p>
+          <p id="follower-subhead">Followers</p>
+        </div>
+        <div class="counter">
+          <img src="./images/icon-up.svg" id="arrow-icon" alt="">
+          <p id="positive">99 Today</p>
+        </div>
+      </div>
+      <div class="feed-card instagram">
+        <div class="social-tag">
+          <img src="./images/icon-instagram.svg" alt="" id="social-icon"> <p>@realnathanf</p>
+        </div>
+        <div class="follower-count">
+          <p id="follower-num">11k</p>
+          <p id="follower-subhead">Followers</p>
+        </div>
+        <div class="counter">
+          <img src="./images/icon-up.svg" id="arrow-icon" alt="">
+          <p id="positive">1099 Today</p>
+        </div>
+
+      </div>
+      <div class="feed-card youtube">
+        <div class="social-tag">
+          <img src="./images/icon-youtube.svg" alt="" id="social-icon"> <p>Nathan F.</p>
+        </div>
+        <div class="follower-count">
+          <p id="follower-num">8239</p>
+          <p id="follower-subhead">Subscribers</p>
+        </div>
+        <div class="counter">
+          <img src="./images/icon-down.svg" id="arrow-icon" alt="">
+          <p id="negative">144 today</p>
+        </div>
+      </div>
+
+    </section>  
 
     
     <section class="social-overview" id="social-overview">
@@ -41,7 +96,10 @@
 
 
         <div class="overview-container">
-          <div class="overview-card facebook"></div>
+          <div class="overview-card facebook">
+            <div class="social-info"></div>
+            <div class="stats"></div>
+          </div>
           <div class="overview-card facebook"></div>
           <div class="overview-card twitter"></div>
           <div class="overview-card twitter"></div>
