@@ -10,23 +10,28 @@
   --youtube:hsl(348, 97%, 39%);
   --fw-normal:400;
   --fw-bold:700;
-  --toggle-dark-blue:#378fe6;
+  --toggle-main:#378fe6;
   --toggle-dark-green:#3eda82;
   --toggle-light:hsl(230, 22%, 74%);
   /* Light Theme - Default */
   --bg: hsl(0, 0%, 100%);
   --top-bg-pattern: hsl(225, 100%, 98%);
   --card-bg: hsl(227, 47%, 96%);
-  --text-dark-grey: hsl(228, 12%, 44%);
-  --text-dark-blue: hsl(230, 17%, 14%);
+  --text-submain: hsl(228, 12%, 44%);
+  --text-main: hsl(230, 17%, 14%);
+}
+
+* {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 [data-theme="dark"] {
   --bg: hsl(230, 17%, 14%);
   --top-bg-attern: hsl(232, 19%, 15%);
   --card-bg: hsl(228, 28%, 20%);
-  --text-grey: hsl(228, 34%, 66%);
-  --text-white: hsl(0, 0%, 100%);
+  --text-submain: hsl(228, 34%, 66%);
+  --text-main: hsl(0, 0%, 100%);
 }
 
 body {
@@ -34,13 +39,23 @@ body {
   background-color: var(--bg);
 }
 
+#positive {
+  color: var(--lime-green);
+}
+
+#negative {
+  color: var(--bright-red);
+}
+
 .main-container {
-  padding: 2rem 1.6rem 0 1.6rem;
-  width: 100vw;
+  max-width: 1050px;
+  position: relative;
+  margin: 0 auto;
   height: auto;
 }
 
 .main-container .header-toggle {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,12 +72,12 @@ body {
 .main-container .header-toggle p {
   font-size: 14px;
   font-weight: 700;
-  color: var(--text-dark-grey);
+  color: var(--text-submain);
 }
 
 .main-container .header-toggle .header-info h1 {
   font-size: 1.4rem;
-  color: var(--text-dark-blue);
+  color: var(--text-main);
   letter-spacing: .5px;
 }
 
@@ -70,7 +85,7 @@ body {
   margin: 1.3rem 0;
   width: 100%;
   height: .5px;
-  background-color: var(--text-dark-blue);
+  background-color: var(--text-main);
 }
 
 .main-container .header-toggle .toggle {
@@ -82,11 +97,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  /* 
-           .checkbox:checked + .label{
-                background: linear-gradient(var(--toggle-dark-blue),var(--toggle-dark-green));
-            }
-            */
 }
 
 .main-container .header-toggle .toggle .checkbox {
@@ -97,6 +107,12 @@ body {
 .main-container .header-toggle .toggle .checkbox:checked + .label .ball {
   -webkit-transform: translateX(-26px);
           transform: translateX(-26px);
+  background-color: var(--bg);
+}
+
+.main-container .header-toggle .toggle .checkbox:checked + .label {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--toggle-main)), to(var(--toggle-dark-green)));
+  background: linear-gradient(var(--toggle-main), var(--toggle-dark-green));
 }
 
 .main-container .header-toggle .toggle .label {
@@ -113,8 +129,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 5px;
-  -webkit-transition: background-color .3s ease-in-out;
-  transition: background-color .3s ease-in-out;
+  -webkit-transition: background-color 0.5s ease-in;
+  transition: background-color 0.5s ease-in;
 }
 
 .main-container .header-toggle .toggle .label .ball {
@@ -124,10 +140,10 @@ body {
   right: 4px;
   background-color: #fff;
   border-radius: 50%;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
 .main-container .social-feed {
@@ -141,6 +157,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   gap: 1.5rem;
 }
 
@@ -171,7 +189,7 @@ body {
 .main-container .social-feed .feed-card .social-tag p {
   font-weight: var(--fw-bold);
   font-size: 12px;
-  color: var(--text-dark-grey);
+  color: var(--text-submain);
 }
 
 .main-container .social-feed .feed-card .social-tag #social-icon {
@@ -187,13 +205,14 @@ body {
 .main-container .social-feed .feed-card .follower-count #follower-num {
   font-size: 3.5rem;
   font-weight: var(--fw-bold);
+  color: var(--text-main);
 }
 
 .main-container .social-feed .feed-card .follower-count #follower-subhead {
   text-transform: uppercase;
   letter-spacing: 5px;
   margin-top: -10px;
-  color: var(--text-dark-grey);
+  color: var(--text-main);
   font-weight: var(--fw-normal);
   font-size: 13px;
 }
@@ -220,14 +239,6 @@ body {
 .main-container .social-feed .feed-card .counter p {
   font-size: 12px;
   font-weight: var(--fw-bold);
-}
-
-.main-container .social-feed .feed-card .counter #positive {
-  color: var(--lime-green);
-}
-
-.main-container .social-feed .feed-card .counter #negative {
-  color: var(--bright-red);
 }
 
 .main-container .social-feed .feed-card::before {
@@ -263,16 +274,20 @@ body {
 }
 
 .main-container .social-overview .subheader h2 {
-  font-size: 1.5rem;
-  color: var(--text-dark-grey);
+  font-size: 1.4rem;
+  color: var(--text-main);
   letter-spacing: 1px;
 }
 
 .main-container .social-overview .overview-container {
+  width: 100%;
+  height: auto;
   padding: 1.5rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -288,5 +303,91 @@ body {
   height: 120px;
   background-color: var(--card-bg);
   border-radius: 5px;
+}
+
+.main-container .social-overview .overview-container .overview-card .social-info, .main-container .social-overview .overview-container .overview-card .stats {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem 2rem 0 2rem;
+}
+
+.main-container .social-overview .overview-container .overview-card .social-info p, .main-container .social-overview .overview-container .overview-card .stats p {
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  letter-spacing: .5px;
+  color: var(--text-submain);
+}
+
+.main-container .social-overview .overview-container .overview-card .social-info #stat-num, .main-container .social-overview .overview-container .overview-card .stats #stat-num {
+  font-size: 2rem;
+  color: var(--text-main);
+}
+
+.main-container .social-overview .overview-container .overview-card .social-info .stat-counter, .main-container .social-overview .overview-container .overview-card .stats .stat-counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container .social-overview .overview-container .overview-card .social-info .stat-counter #arrow-icon, .main-container .social-overview .overview-container .overview-card .stats .stat-counter #arrow-icon {
+  margin-right: 3px;
+}
+
+.main-container .social-overview .overview-container .overview-card .stats {
+  padding-top: 1rem;
+}
+
+@media only screen and (min-width: 48rem) {
+  .main-container .social-feed {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .main-container .social-overview .overview-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (min-width: 90rem) {
+  .main-container .main-container {
+    padding: 2rem 10rem 0 10rem;
+  }
+  .main-container .main-container .social-overview .overview-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -16,7 +16,7 @@
     --fw-bold:700;
 
     //Toggle Themes
-    --toggle-dark-blue:#378fe6;
+    --toggle-main:#378fe6;
     --toggle-dark-green:#3eda82;
     --toggle-light:hsl(230, 22%, 74%);
 
@@ -25,10 +25,13 @@
     --top-bg-pattern: hsl(225, 100%, 98%);
     --card-bg: hsl(227, 47%, 96%);
     //text color
-    --text-dark-grey: hsl(228, 12%, 44%);
-    --text-dark-blue: hsl(230, 17%, 14%);
+    --text-submain: hsl(228, 12%, 44%);
+    --text-main: hsl(230, 17%, 14%);
 }
 
+* {
+    transition: 0.5s;
+  }
 
 [data-theme="dark"]{
     --bg: hsl(230, 17%, 14%);
@@ -36,8 +39,8 @@
     --card-bg: hsl(228, 28%, 20%);
 
     //text color
-    --text-grey: hsl(228, 34%, 66%);
-    --text-white: hsl(0, 0%, 100%);
+    --text-submain: hsl(228, 34%, 66%);
+    --text-main: hsl(0, 0%, 100%);
 }
 
 body{
@@ -45,15 +48,22 @@ body{
     background-color: var(--bg); 
 }
 
+#positive{color:var(--lime-green);}
+#negative{color:var(--bright-red);}
+
 .main-container{
 
-    padding:2rem 1.6rem 0 1.6rem;
-    width:100vw;
+    //padding:2rem 1.6rem 0 1.6rem;
+    min-wdith;;
+    max-width: 1050px;
+    position: relative;
+    margin:0 auto;
     height:auto;
    
 
 
     .header-toggle{
+        width:100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -62,12 +72,12 @@ body{
         p{
             font-size:14px;
             font-weight: 700;
-            color:var(--text-dark-grey);
+            color:var(--text-submain);
         }
 
         .header-info h1{
         font-size: 1.4rem;
-        color:var(--text-dark-blue);
+        color:var(--text-main);
         letter-spacing: .5px;
         }
 
@@ -77,7 +87,7 @@ body{
             margin:1.3rem 0;
             width:100%;
             height:.5px;
-            background-color: var(--text-dark-blue);
+            background-color: var(--text-main);
         }
         .toggle{
             display:flex;
@@ -94,14 +104,15 @@ body{
 
             .checkbox:checked + .label .ball{
                transform: translateX(-26px);
+               background-color: var(--bg);
             }
 
             //styling for the background of the label when it is clicked to the dark theme
-           /* 
+           
            .checkbox:checked + .label{
-                background: linear-gradient(var(--toggle-dark-blue),var(--toggle-dark-green));
+                background: linear-gradient(var(--toggle-main),var(--toggle-dark-green));
             }
-            */
+            
             
             .label{
                 width:50px;
@@ -113,7 +124,7 @@ body{
                 display:flex;
                 align-items: center;
                 padding:5px;
-                transition: background-color .3s ease-in-out;
+                transition: background-color 0.5s ease-in;
                 
 
                 .ball{
@@ -123,7 +134,7 @@ body{
                     right:4px;
                     background-color: #fff;
                     border-radius: 50%;
-                    transition:transform 0.3s ease-in-out;
+                    transition:transform 0.5s ease;
                 }
             }
         }
@@ -136,6 +147,7 @@ body{
         display:flex;
         margin-bottom:2.5rem;
         flex-direction: column;
+        flex-wrap: nowrap;
         gap:1.5rem;
 
         .feed-card{
@@ -157,7 +169,7 @@ body{
                 p{
                     font-weight: var(--fw-bold);
                     font-size: 12px;
-                    color:var(--text-dark-grey);
+                    color:var(--text-submain);
                 }
                 #social-icon{
                     margin-right:10px;
@@ -173,13 +185,14 @@ body{
                 #follower-num{
                     font-size: 3.5rem;
                     font-weight: var(--fw-bold);
+                    color:var(--text-main);
                 }
 
                 #follower-subhead{
                     text-transform: uppercase;
                     letter-spacing: 5px;
                     margin-top:-10px;
-                    color:var(--text-dark-grey);
+                    color:var(--text-main);
                     font-weight: var(--fw-normal);
                     font-size:13px;
                 }
@@ -202,8 +215,7 @@ body{
                     font-weight: var(--fw-bold);
                 }
 
-                #positive{color:var(--lime-green);}
-                #negative{color:var(--bright-red);}
+               
             }
 
         }
@@ -233,13 +245,16 @@ body{
         height: 100%;
         
         .subheader h2{
-            font-size: 1.5rem;
-            color: var(--text-dark-grey);
+            font-size: 1.4rem;
+            color: var(--text-main);
             letter-spacing: 1px;
         }
         .overview-container{
+            width:100%;
+            height:auto;
             padding:1.5rem 0;
             display: flex;
+            flex-wrap: wrap;
             flex-direction: column;
             justify-content: center;
             gap:1rem;
@@ -250,10 +265,78 @@ body{
             background-color: var(--card-bg);
             border-radius: 5px;
 
-            .social-info{}
+            .social-info,.stats{
+                width:100%;
+                height:auto;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                padding:1.5rem 2rem 0 2rem;
 
-            .stats{}
+                p{
+                    font-size:13px;
+                    font-weight: var(--fw-bold);
+                    letter-spacing:.5px;
+                    color:var(--text-submain);
+                }
+
+                #stat-num{
+                    font-size:2rem;
+                    color:var(--text-main);
+                }
+
+                .stat-counter{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    #arrow-icon{
+                        margin-right:3px;
+                    }
+                }
+            }
+
+            .stats{
+                padding-top:1rem;
+            }
         }
         }
     }
+
+    @media only screen and (min-width:48rem){
+    
+        .social-feed{
+            
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-overview .overview-container{
+          
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        
+        }
+
+        @media only screen and (min-width:90rem){
+
+            .main-container{
+                padding:2rem 10rem 0 10rem;
+                .social-overview .overview-container{
+                    flex-direction: row;
+                }
+
+            }
+            
+        }
+
 }
+
+
+
+
+
