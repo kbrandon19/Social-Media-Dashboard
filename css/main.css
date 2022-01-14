@@ -19,6 +19,7 @@
   --card-bg: hsl(227, 47%, 96%);
   --text-submain: hsl(228, 12%, 44%);
   --text-main: hsl(230, 17%, 14%);
+  --card-hover:hsl(236, 32%, 91%);
 }
 
 * {
@@ -28,8 +29,9 @@
 
 [data-theme="dark"] {
   --bg: hsl(230, 17%, 14%);
-  --top-bg-attern: hsl(232, 19%, 15%);
+  --top-bg-pattern: hsl(232, 19%, 15%);
   --card-bg: hsl(228, 28%, 20%);
+  --card-hover:hsl(227, 24%, 26%);
   --text-submain: hsl(228, 34%, 66%);
   --text-main: hsl(0, 0%, 100%);
 }
@@ -37,6 +39,16 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #positive {
@@ -47,8 +59,21 @@ body {
   color: var(--bright-red);
 }
 
+.top-bg {
+  height: 235px;
+  width: 100%;
+  background-color: var(--top-bg-pattern);
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 .main-container {
-  max-width: 1050px;
+  padding: 2rem 1.6rem 2rem 1.6rem;
+  width: 100%;
+  max-width: 1110px;
   position: relative;
   margin: 0 auto;
   height: auto;
@@ -152,6 +177,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 2.5rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -170,6 +201,12 @@ body {
   background-color: var(--card-bg);
   text-align: center;
   padding: 2.3rem 1rem 0 1rem;
+  -webkit-transition: background-color .5s ease;
+  transition: background-color .5s ease;
+}
+
+.main-container .social-feed .feed-card:hover {
+  background-color: var(--card-hover);
 }
 
 .main-container .social-feed .feed-card .social-tag {
@@ -280,29 +317,38 @@ body {
 }
 
 .main-container .social-overview .overview-container {
-  width: 100%;
+  max-width: 1110px;
+  width: auto;
   height: auto;
-  padding: 1.5rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1.5rem 0 .5rem 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 1rem;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 1.5rem;
 }
 
 .main-container .social-overview .overview-container .overview-card {
-  width: 325px;
+  max-width: 325px;
+  width: 100%;
   height: 120px;
   background-color: var(--card-bg);
   border-radius: 5px;
+}
+
+.main-container .social-overview .overview-container .overview-card:hover {
+  background-color: var(--card-hover);
 }
 
 .main-container .social-overview .overview-container .overview-card .social-info, .main-container .social-overview .overview-container .overview-card .stats {
@@ -352,7 +398,7 @@ body {
   padding-top: 1rem;
 }
 
-@media only screen and (min-width: 48rem) {
+@media (min-width: 48rem) {
   .main-container .social-feed {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -370,24 +416,17 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
-}
-
-@media only screen and (min-width: 90rem) {
-  .main-container .main-container {
-    padding: 2rem 10rem 0 10rem;
-  }
-  .main-container .main-container .social-overview .overview-container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+  .main-container .social-overview .overview-container .overview-card {
+    width: 240px;
   }
 }
 /*# sourceMappingURL=main.css.map */
