@@ -29,10 +29,10 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile-light](./screenshots/mobile-light.png)
-![Desktop-light](./screenshots/desktop-light.png)
-![Mobile-dark](./screenshots/mobile-dark.png)
-![Desktop-dark](./screenshots/desktop-dark.png)
+![Mobile-light](./images/screenshots/mobile-light.png)
+![Desktop-light](./images/screenshots/desktop-light.png)
+![Mobile-dark](./images/screenshots/mobile-dark.png)
+![Desktop-dark](./images/screenshots/desktop-dark.png)
 
 
 
