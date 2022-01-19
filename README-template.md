@@ -47,13 +47,16 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
+- Javascript
 - Flexbox
 - Mobile-first workflow
 
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+With SCSS I was having a hard time determining how to include :hover since I normal do it with CSS. In SCSS it's all about nesting so it only made sense that it would go within the element you're trying to manipulate. 
+
+I also learned about using labels and buttons for the toggle. This was my first time trying this so I am most certainly pleased.
 
 
 ```scss
@@ -74,16 +77,12 @@ transition: background-color .4s ease;
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I want to focus more on understanding Flexbox better and how it interacts with elements inside it and vice versa. Not only that but I want to incorporate more Javascript within my work. 
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [SCSS Parent Selector](https://sass-lang.com/documentation/style-rules/parent-selector) - This helped me incorporate the hover feature for the cards.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 

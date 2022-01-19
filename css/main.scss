@@ -34,6 +34,7 @@
     transition: 0.5s;
   }
 
+  //theme for Dark Mode
 [data-theme="dark"]{
     --bg: hsl(230, 17%, 14%);
     --top-bg-pattern: hsl(232, 19%, 15%);
@@ -106,9 +107,7 @@ body{
             height:auto;
             width: 100%;
             justify-content: space-between;
-            
-            
-            
+                
             .checkbox{
                 opacity: 0;
                 position: absolute;
